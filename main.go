@@ -63,7 +63,6 @@ func authVerify(c *gin.Context) {
 	if user == "user" && password == "password" {
 		tokenExists := cache.TokenExists(user, token)
 		if !tokenExists {
-			fmt.Println("Not exist")
 			cache.SaveToken(user, token)
 			c.JSON(http.StatusOK, gin.H{
 				"user":    user,
